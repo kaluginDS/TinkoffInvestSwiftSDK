@@ -42,4 +42,9 @@ public extension Quotation {
         let value = Decimal(units) + Decimal(sign: nano.signum() == -1 ? .minus : .plus , exponent: -9, significand: Decimal(nano))
         return value
     }
+
+    var cgFloat: CGFloat {
+        let value = NSDecimalNumber(decimal: self.asAmount).doubleValue
+        return CGFloat(value)
+    }
 }
